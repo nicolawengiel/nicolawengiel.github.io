@@ -1,0 +1,140 @@
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --text: #1f2328;
+  --muted: #59636e;
+  --link: #0969da;
+  --line: #d1d9e0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 1rem/1.6 system-ui, sans-serif;
+}
+
+main {
+  width: min(100% - 2.5rem, 46rem);
+  margin: clamp(2rem, 6vw, 3.75rem) auto 3rem;
+}
+
+h1, h2, p, ul {
+  margin: 0;
+}
+
+h1, h2 {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 {
+  grid-area: name;
+  font-size: clamp(1.75rem, 4.4vw, 2.15rem);
+}
+
+h2 {
+  margin-bottom: 0.65rem;
+  font-size: 1.2rem;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  color: #0550ae;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 11rem;
+  grid-template-areas:
+    "name portrait"
+    "bio portrait";
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  gap: 0.7rem 2rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.bio {
+  grid-area: bio;
+}
+
+.bio p + p {
+  margin-top: 0.45rem;
+}
+
+.portrait {
+  grid-area: portrait;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+section {
+  margin-top: 1.5rem;
+}
+
+.papers {
+  padding-inline-start: 1.2rem;
+}
+
+.papers li + li {
+  margin-top: 0.65rem;
+}
+
+.citation, address {
+  color: var(--muted);
+}
+
+.citation {
+  font-size: 0.9rem;
+}
+
+address {
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
+
+.cv-reader {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+}
+
+.cv-reader > iframe {
+  flex: 1;
+  min-height: 0;
+  border: 0;
+}
+
+@media (max-width: 34rem) {
+  .profile {
+    grid-template-columns: minmax(0, 1fr) min(7rem, 32vw);
+    grid-template-areas:
+      "name portrait"
+      "bio bio";
+    align-items: center;
+    gap: 0.8rem 0.9rem;
+  }
+}

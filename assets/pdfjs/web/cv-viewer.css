@@ -1,0 +1,16 @@
+:root {
+  color-scheme: light;
+  --body-bg-color: #f6f8fa;
+}
+
+#mainContainer {
+  min-width: 0;
+}
+
+#mainContainer > .toolbar {
+  display: none;
+}
+
+#viewerContainer {
+  inset-block-start: 0;
+}
